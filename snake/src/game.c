@@ -71,7 +71,7 @@ void read_name(char* write_into) {
  *  - snake_p: a pointer to your snake struct. (not needed until part 3)
  */
 void teardown(int* cells, snake_t* snake_p) {  
-    // TODO: Free the board (part 1B)
+    // TODO: Free the board
 
     // TODO: implement! (part 3A)
 }
