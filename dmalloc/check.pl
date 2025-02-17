@@ -339,7 +339,7 @@ sub test_class ($;@) {
             || ($x =~ m{(?:\A|[,\s])(\d+)-(\d+)(?:[,\s]|\z)} && $test >= $1 && $test <= $2)
             || $x =~ m{(?:\A|[,\s])$test(?:[,\s]|\z)}
             || ($x =~ m{(?:\A|[,\s])san(?:[,\s]|\z)}i && $test >= 1 && $test <= 26)
-            || ($x =~ m{(?:\A|[,\s])leak(?:[,\s]|\z)}i && grep { $_ == $test } (1, 8, 10, 11, 14, 15, 24, 28, 34, 35, 36, 38))) {
+            || ($x =~ m{(?:\A|[,\s])leak(?:[,\s]|\z)}i && grep { $_ == $test } (1, 8, 10, 11, 14, 15, 24, 29, 35, 36, 37, 39))) {
             return 1;
         }
     }
@@ -378,7 +378,7 @@ if ($Exec) {
                      read_expected($Exec . ".cc"),
                      $ofile, $Exec . ".cc", $Exec, $out));
 } else {
-    my($maxtest, $ntest, $ntestfailed) = (39, 0, 0);
+    my($maxtest, $ntest, $ntestfailed) = (40, 0, 0);
     if ($Test) {
         for ($i = 1; $i <= $maxtest; $i += 1) {
             printf "test%03d\n", $i if test_runnable($i)
@@ -400,7 +400,7 @@ if ($Exec) {
         $ENV{"ASAN_OPTIONS"} = asan_options($i);
         printf STDERR "test%03d ", $i;
         $out = run_sh61(sprintf("./test%03d", $i), "stdout" => "pipe", "stdin" => "/dev/null",
-                        "time_limit" => $i == 34 ? 10 : 5, "size_limit" => 8000);
+                        "time_limit" => $i == 35 ? 10 : 5, "size_limit" => 8000);
         if (exists($out->{killed})) {
             print STDERR "${Red}CRASH: $out->{killed}$Off\n";
             if (exists($out->{output}) && $out->{output} =~ m/\A\s*(.+)/) {
