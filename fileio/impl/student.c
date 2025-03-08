@@ -17,6 +17,10 @@
     Fill in the following stencils
 */
 
+// Prototypes for helper functions
+int io300_fetch(struct io300_file* const f);
+int io300_flush(struct io300_file* const f);
+
 /*
     When starting, you might want to change this for testing on small files.
 */
