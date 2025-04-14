@@ -1,0 +1,3 @@
+# Force unix newlines on all platforms
+*.sh text eol=lf
+gdpr/database.txt text eol=lf
